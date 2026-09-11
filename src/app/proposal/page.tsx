@@ -145,8 +145,7 @@ export default function ProposalPage() {
           <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-[#0693e3] mb-4"><CalIcon className="w-4 h-4" /> Next Step</div>
           <h2 className="text-3xl md:text-4xl font-light mb-4">I&apos;ll Come to You</h2>
           <p className="text-white/40 mb-8 text-lg">15 minutes. I&apos;ll drive to Conyers. Live AI demo. You decide after you see it.</p>
-          <a href="tel:+14707069339" className="inline-flex items-center gap-3 bg-[#0693e3] text-white font-semibold text-lg px-10 py-4 rounded-xl hover:bg-[#003388] transition-all hover:scale-[1.03]">Call Matt: (470) 706-9339</a>
-          <p className="text-white/25 text-xs mt-4">1343 Business Center Dr. #B, Conyers, GA 30094</p>
+          <a href="sms:+14046908889" className="inline-flex items-center gap-3 bg-[#0693e3] text-white font-semibold text-lg px-10 py-4 rounded-xl hover:bg-[#003388] transition-all hover:scale-[1.03]">Text Julius: (404) 690-8889</a>
         </div>
       </section>
 
