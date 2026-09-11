@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Oswald, Inter } from "next/font/google";
+import Image from "next/image";
+import Link from "next/link";
 import "./globals.css";
 
 const oswald = Oswald({
@@ -14,9 +16,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Mr. Roofing & Construction | East Atlanta Roofing Experts",
-  description:
-    "Family-owned roofing and construction serving Metro East Atlanta since 2017. Asphalt roofing, repairs, siding, gutters. Free estimates. Call (470) 706-9339.",
+  title: "Matt — Your Custom Proposal | Julius Young III",
+  description: "Everything I built for Mr. Roofing. Website, lead gen, and AI calling. One link. Three minutes.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
