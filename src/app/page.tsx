@@ -133,10 +133,10 @@ export default function Home() {
             A+ Rated · Family Owned Since 2017
           </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.4 }} className="text-5xl md:text-7xl lg:text-8xl font-light leading-[1.05] mb-8 tracking-tight">
-            East Atlanta&apos;s<br /><span className="text-[#0693e3] font-semibold">Trusted Roofing</span><br />Family
+            East Atlanta&apos;s<br /><span className="gradient-text font-semibold">Trusted Roofing</span><br />Family
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.6 }} className="text-lg md:text-xl text-white/50 max-w-2xl mx-auto mb-12 leading-relaxed">
-            Premium roofing, siding, gutters, and exterior construction. Done right the first time — backed by three generations.
+            Your roof leaks. We fix it. Same family on the phone, same family on the roof. Done right the first time — or we come back and make it right, free.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.8 }} className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <a href={PHONE_HREF} className="group inline-flex items-center gap-4 bg-[#0693e3] text-white font-bold text-2xl md:text-3xl px-14 py-6 md:px-20 md:py-7 rounded-2xl hover:bg-[#003388] transition-all duration-300 hover:scale-[1.05] hover:shadow-[0_25px_80px_rgba(6,147,227,0.4)]">
@@ -192,8 +192,8 @@ export default function Home() {
         <div className="hs-inner flex gap-6 px-[10vw] items-center h-screen w-max">
           <div className="flex-shrink-0 w-[30vw] min-w-[320px] pr-8">
             <div className="text-xs uppercase tracking-[0.3em] text-[#0693e3] mb-4">Services</div>
-            <h2 className="text-4xl md:text-5xl font-light leading-tight mb-4">More Than<br />Just Roofing</h2>
-            <p className="text-white/40 text-sm">Scroll to explore →</p>
+            <h2 className="text-4xl md:text-5xl font-light leading-tight mb-4">Roofing Is<br />Just the Start</h2>
+            <p className="text-white/40 text-sm">Most roofing companies stop at the roof. We don&apos;t. Scroll to see →</p>
           </div>
           {services.map((s) => (
             <div key={s.num} className="spotlight-card flex-shrink-0 w-[28vw] min-w-[300px] bg-[#0f1a2e] rounded-2xl border border-[#0693e3]/10 overflow-hidden hover:border-[#0693e3]/30 transition-all duration-500 group" style={{ cursor: 'default' }}>
@@ -270,12 +270,12 @@ export default function Home() {
         <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
           <div>
             <div className="about-r text-xs uppercase tracking-[0.3em] text-[#0693e3] mb-4">Who We Are</div>
-            <h2 className="about-r text-4xl md:text-5xl font-light mb-6">Family-Owned.<br />Built on Trust.</h2>
+            <h2 className="about-r text-4xl md:text-5xl font-light mb-6">The Guy on Your<br />Roof Is the<br />Owner&apos;s Son</h2>
             <p className="about-r text-white/40 leading-relaxed mb-4">
-              Started by Joe Reeves in 2017, Mr. Roofing is built on a foundation of hard work, professionalism, and quality that comes from the heart.
+              Joe Reeves started this company in 2017 with a truck and a ladder. No investors. No franchise. Just a family that does good work.
             </p>
             <p className="about-r text-white/40 leading-relaxed mb-6">
-              Day-to-day operations are run by his sons Matt and Justin Reeves — the same family you talk to is the family that shows up on your roof.
+              Today, his sons Matt and Justin run every job personally. When you call, you talk to them. When they show up, it&apos;s their name on the truck. That accountability is the whole business model.
             </p>
             <div className="about-r flex items-center gap-4">
               <Image src="/images/bbb-badge.png" alt="BBB Accredited Business" width={200} height={60} className="h-auto w-auto opacity-70" />
