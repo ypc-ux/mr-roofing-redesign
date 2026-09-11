@@ -29,8 +29,25 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 .orb-2{width:400px;height:400px;background:#003388;bottom:-100px;left:-100px;animation-delay:-10s;animation-direction:reverse}
 @keyframes orb-drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(40px,-40px) scale(1.05)}66%{transform:translate(-30px,30px) scale(.95)}}
 
+/* Gradient mesh (moving background) */
+.mesh-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.mesh-bg::before,.mesh-bg::after{content:'';position:absolute;width:150%;height:150%;top:-25%;left:-25%;background:radial-gradient(circle at 30% 30%,rgba(6,147,227,.12),transparent 40%),radial-gradient(circle at 70% 60%,rgba(142,209,252,.08),transparent 45%),radial-gradient(circle at 50% 80%,rgba(0,51,136,.1),transparent 40%);animation:mesh-move 30s ease-in-out infinite alternate}
+.mesh-bg::after{animation-duration:45s;animation-direction:alternate-reverse;opacity:.7}
+@keyframes mesh-move{0%{transform:translate(0,0) rotate(0deg) scale(1)}33%{transform:translate(-3%,2%) rotate(1deg) scale(1.03)}66%{transform:translate(2%,-3%) rotate(-1deg) scale(1.02)}100%{transform:translate(-2%,-2%) rotate(0.5deg) scale(1.01)}}
+
+/* Drifting geometric shapes */
+.geo-shape{position:absolute;border:1px solid rgba(6,147,227,.15);border-radius:24px;pointer-events:none;animation:geo-drift 25s ease-in-out infinite}
+.geo-1{width:120px;height:120px;top:20%;left:8%;transform:rotate(12deg)}
+.geo-2{width:80px;height:80px;top:60%;right:12%;transform:rotate(-8deg);animation-delay:-8s;border-radius:50%}
+.geo-3{width:160px;height:60px;top:35%;right:25%;transform:rotate(45deg);animation-delay:-15s}
+@keyframes geo-drift{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-25px) rotate(calc(var(--r,0deg) + 8deg))}}
+
+/* Parallax image layer */
+.parallax-layer{will-change:transform;transition:transform .1s linear}
+
 /* Gradient text */
 .gradient-text{background:linear-gradient(135deg,#0693e3,#8ed1fc);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
 
 /* Spotlight hover */
 .spotlight-card{position:relative;overflow:hidden;cursor:default}

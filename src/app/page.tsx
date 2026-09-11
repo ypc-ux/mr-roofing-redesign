@@ -123,9 +123,13 @@ export default function Home() {
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-br from-[#0B1426]/90 via-[#0B1426]/80 to-[#1a2332]/90" />
+          <div className="mesh-bg" />
           <div className="grid-bg" />
           <div className="orb orb-1" />
           <div className="orb orb-2" />
+          <div className="geo-shape geo-1" />
+          <div className="geo-shape geo-2" />
+          <div className="geo-shape geo-3" />
         </motion.div>
         <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-[#0693e3] border border-[#0693e3]/20 rounded-full px-6 py-2 mb-10">
