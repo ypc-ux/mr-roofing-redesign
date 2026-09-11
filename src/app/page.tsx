@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
@@ -11,12 +12,12 @@ const PHONE_HREF = 'tel:+14707069339';
 const ADDRESS = '1343 Business Center Dr. #B, Conyers, GA 30094';
 
 const services = [
-  { num: '01', title: 'Asphalt Roofing', desc: 'Premium shingle installation built to last decades.' },
-  { num: '02', title: 'Roof Repairs', desc: 'Stop leaks fast. 24/7 emergency service.' },
-  { num: '03', title: 'Siding', desc: 'New installs, repairs, and pressure washing.' },
-  { num: '04', title: 'Soffits & Gutters', desc: 'Water damage protection that lasts.' },
-  { num: '05', title: 'Painting', desc: 'Interior and exterior. Done right the first time.' },
-  { num: '06', title: 'Storm Damage', desc: 'Insurance claims. Free drone inspection.' },
+  { num: '01', title: 'Asphalt Roofing', desc: 'Premium shingle installation built to last decades.', img: '/images/service-1.jpg' },
+  { num: '02', title: 'Roof Repairs', desc: 'Stop leaks fast. 24/7 emergency service.', img: '/images/roofing-work.jpg' },
+  { num: '03', title: 'Siding', desc: 'New installs, repairs, and pressure washing.', img: '/images/service-2.jpg' },
+  { num: '04', title: 'Soffits & Gutters', desc: 'Water damage protection that lasts.', img: '/images/service-3.jpg' },
+  { num: '05', title: 'Painting', desc: 'Interior and exterior. Done right the first time.', img: '/images/service-4.jpg' },
+  { num: '06', title: 'Storm Damage', desc: 'Insurance claims. Free drone inspection.', img: '/images/service-5.jpg' },
 ];
 
 const reviews = [
@@ -89,7 +90,10 @@ export default function Home() {
 {/* NAV_HERO */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0B1426]/95 backdrop-blur-xl border-b border-[#C9A855]/10">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="font-semibold text-lg uppercase tracking-[0.2em]">Mr. <span className="text-[#C9A855]">Roofing</span></div>
+          <div className="flex items-center gap-3">
+            <Image src="/images/logo.png" alt="Mr. Roofing" width={40} height={40} className="h-10 w-auto" />
+            <div className="font-semibold text-lg uppercase tracking-[0.2em] hidden sm:block">Mr. <span className="text-[#C9A855]">Roofing</span></div>
+          </div>
           <div className="hidden md:flex items-center gap-10 text-sm text-white/60">
             <a href="#services" className="hover:text-[#C9A855] transition-colors">Services</a>
             <a href="#reviews" className="hover:text-[#C9A855] transition-colors">Reviews</a>
@@ -102,9 +106,15 @@ export default function Home() {
 
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <motion.div className="hero-bg absolute inset-0" style={{ opacity: heroOpacity, y: heroY }}>
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0B1426] via-[#0B1426] to-[#1a2332]" />
+          <Image
+            src="/images/hero-bg.jpg"
+            alt="Mr. Roofing hero background"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0B1426]/90 via-[#0B1426]/80 to-[#1a2332]/90" />
           <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(#C9A855 1px, transparent 1px), linear-gradient(90deg, #C9A855 1px, transparent 1px)', backgroundSize: '80px 80px' }} />
-          <svg className="absolute bottom-0 left-0 w-full opacity-[0.06]" viewBox="0 0 1200 200" fill="none"><path d="M0 200 L200 80 L400 200 L600 60 L800 200 L1000 90 L1200 200" stroke="#C9A855" strokeWidth="2" /></svg>
         </motion.div>
         <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-[#C9A855] border border-[#C9A855]/20 rounded-full px-6 py-2 mb-10">
@@ -157,13 +167,19 @@ export default function Home() {
             <p className="text-white/40 text-sm">Scroll to explore →</p>
           </div>
           {services.map((s) => (
-            <div key={s.num} className="flex-shrink-0 w-[28vw] min-w-[300px] h-[50vh] bg-[#0f1a2e] rounded-2xl border border-[#C9A855]/10 p-8 flex flex-col justify-between hover:border-[#C9A855]/30 transition-all duration-500 group">
-              <div>
-                <div className="text-[#C9A855]/30 text-6xl font-light mb-6 group-hover:text-[#C9A855]/60 transition-colors duration-500">{s.num}</div>
-                <h3 className="text-2xl font-light mb-3">{s.title}</h3>
-                <p className="text-white/40 text-sm leading-relaxed">{s.desc}</p>
+            <div key={s.num} className="flex-shrink-0 w-[28vw] min-w-[300px] bg-[#0f1a2e] rounded-2xl border border-[#C9A855]/10 overflow-hidden hover:border-[#C9A855]/30 transition-all duration-500 group">
+              <div className="relative h-48 overflow-hidden">
+                <Image src={s.img} alt={s.title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0f1a2e] to-transparent opacity-60" />
+                <div className="absolute bottom-3 left-4 text-[#C9A855]/60 text-3xl font-light">{s.num}</div>
               </div>
-              <a href="#contact" className="text-[#C9A855] text-sm font-medium hover:text-[#E8D5A3] transition-colors">Learn more →</a>
+              <div className="p-6 flex flex-col justify-between h-[calc(50vh-12rem)] min-h-[180px]">
+                <div>
+                  <h3 className="text-2xl font-light mb-2">{s.title}</h3>
+                  <p className="text-white/40 text-sm leading-relaxed">{s.desc}</p>
+                </div>
+                <a href="#contact" className="text-[#C9A855] text-sm font-medium hover:text-[#E8D5A3] transition-colors">Learn more →</a>
+              </div>
             </div>
           ))}
         </div>
@@ -212,24 +228,19 @@ export default function Home() {
             <p className="about-r text-white/40 leading-relaxed mb-4">
               Started by Joe Reeves in 2017, Mr. Roofing is built on a foundation of hard work, professionalism, and quality that comes from the heart.
             </p>
-            <p className="about-r text-white/40 leading-relaxed">
+            <p className="about-r text-white/40 leading-relaxed mb-6">
               Day-to-day operations are run by his sons Matt and Justin Reeves — the same family you talk to is the family that shows up on your roof.
             </p>
+            <div className="about-r flex items-center gap-4">
+              <Image src="/images/bbb-badge.png" alt="BBB Accredited Business" width={200} height={60} className="h-auto w-auto opacity-70" />
+            </div>
           </div>
-          <div className="about-r bg-[#0f1a2e] border border-[#C9A855]/10 rounded-2xl p-8 space-y-6">
-            {[
-              { icon: '🛡️', title: 'Guaranteed Results', desc: 'Extended warranties on every job.' },
-              { icon: '💧', title: 'Premium Materials', desc: 'Advanced sealants and durable shingles.' },
-              { icon: '⚡', title: 'Energy Efficient', desc: 'Proper sealing cuts heating and cooling costs.' },
-            ].map((f) => (
-              <div key={f.title} className="flex items-start gap-4">
-                <div className="w-11 h-11 rounded-xl bg-[#C9A855]/10 flex items-center justify-center text-xl flex-shrink-0">{f.icon}</div>
-                <div>
-                  <h4 className="text-white/80 font-medium text-sm mb-0.5">{f.title}</h4>
-                  <p className="text-white/40 text-xs">{f.desc}</p>
-                </div>
-              </div>
-            ))}
+          <div className="about-r relative">
+            <div className="relative rounded-2xl overflow-hidden border border-[#C9A855]/20">
+              <Image src="/images/team-photo.jpg" alt="The Mr. Roofing team" width={480} height={640} className="w-full h-auto object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B1426]/80 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 text-white/80 text-sm font-medium">The Reeves Family — Mr. Roofing & Construction</div>
+            </div>
           </div>
         </div>
       </section>
