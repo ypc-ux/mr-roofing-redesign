@@ -79,6 +79,15 @@ export default function Home() {
       gsap.fromTo(el, { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.8, ease: 'back.out(1.2)', delay: (i % 3) * 0.08, scrollTrigger: { trigger: el, start: 'top 88%', once: true } });
     });
 
+    document.querySelectorAll('.spotlight-card').forEach((el) => {
+      const card = el as HTMLElement;
+      card.addEventListener('mousemove', (e: MouseEvent) => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mx', `${e.clientX - rect.left}px`);
+        card.style.setProperty('--my', `${e.clientY - rect.top}px`);
+      });
+    });
+
     return () => { lenis.destroy(); ScrollTrigger.getAll().forEach((st) => st.kill()); };
   }, []);
 
@@ -88,7 +97,7 @@ export default function Home() {
         <motion.div className="h-full bg-[#0693e3] origin-left" style={{ scaleX: scrollYProgress }} />
       </div>
 {/* NAV_HERO */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0B1426]/95 backdrop-blur-xl border-b border-[#0693e3]/10">
+      <nav className="glass-nav fixed top-0 left-0 right-0 z-50">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Image src="/images/logo.png" alt="Mr. Roofing" width={40} height={40} className="h-10 w-auto" />
@@ -114,7 +123,9 @@ export default function Home() {
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-br from-[#0B1426]/90 via-[#0B1426]/80 to-[#1a2332]/90" />
-          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(#0693e3 1px, transparent 1px), linear-gradient(90deg, #0693e3 1px, transparent 1px)', backgroundSize: '80px 80px' }} />
+          <div className="grid-bg" />
+          <div className="orb orb-1" />
+          <div className="orb orb-2" />
         </motion.div>
         <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-[#0693e3] border border-[#0693e3]/20 rounded-full px-6 py-2 mb-10">
@@ -139,6 +150,17 @@ export default function Home() {
             <span className="text-white/40 text-xs uppercase tracking-widest">Owens Corning</span>
             <span className="text-white/40 text-xs uppercase tracking-widest">CertainTeed</span>
             <span className="text-white/40 text-xs uppercase tracking-widest">Atlas Roofing</span>
+          </motion.div>
+
+          {/* Brand marquee */}
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }} className="mt-12">
+            <div className="marquee">
+              <div className="marquee-inner">
+                {['GAF Materials', 'Owens Corning', 'CertainTeed', 'Atlas Roofing', 'GAF Materials', 'Owens Corning', 'CertainTeed', 'Atlas Roofing'].map((brand, i) => (
+                  <span key={i} className="text-white/15 text-lg font-light uppercase tracking-widest">{brand}</span>
+                ))}
+              </div>
+            </div>
           </motion.div>
         </div>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }} className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[#0693e3]/50">
@@ -174,7 +196,7 @@ export default function Home() {
             <p className="text-white/40 text-sm">Scroll to explore →</p>
           </div>
           {services.map((s) => (
-            <div key={s.num} className="flex-shrink-0 w-[28vw] min-w-[300px] bg-[#0f1a2e] rounded-2xl border border-[#0693e3]/10 overflow-hidden hover:border-[#0693e3]/30 transition-all duration-500 group">
+            <div key={s.num} className="spotlight-card flex-shrink-0 w-[28vw] min-w-[300px] bg-[#0f1a2e] rounded-2xl border border-[#0693e3]/10 overflow-hidden hover:border-[#0693e3]/30 transition-all duration-500 group" style={{ cursor: 'default' }}>
               <div className="relative h-48 overflow-hidden">
                 <Image src={s.img} alt={s.title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0f1a2e] to-transparent opacity-60" />
