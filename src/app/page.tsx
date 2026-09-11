@@ -192,6 +192,13 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SERVICES CTA */}
+      <section className="py-16 text-center">
+        <a href="tel:+14707069339" className="reveal inline-flex items-center gap-4 bg-[#0693e3] text-white font-bold text-xl px-14 py-5 rounded-2xl hover:bg-[#003388] transition-all duration-300 hover:scale-[1.04] hover:shadow-[0_20px_60px_rgba(6,147,227,0.35)]">
+          Get Your Free Quote →
+        </a>
+      </section>
+
       <section className="py-24" id="reviews">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
@@ -208,6 +215,16 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+      {/* MID-PAGE CTA — between reviews and areas */}
+      <section className="py-16 bg-[#0693e3]/10 border-y border-[#0693e3]/20">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h3 className="reveal text-2xl md:text-3xl font-light mb-6">Need a roof repair? Don&apos;t wait.</h3>
+          <a href="tel:+14707069339" className="reveal inline-flex items-center gap-4 bg-[#0693e3] text-white font-bold text-xl md:text-2xl px-12 py-5 md:px-16 md:py-6 rounded-2xl hover:bg-[#003388] transition-all duration-300 hover:scale-[1.04] hover:shadow-[0_20px_60px_rgba(6,147,227,0.35)]">
+            Call (470) 706-9339
+          </a>
+          <p className="reveal text-white/30 text-xs mt-4">24/7 Emergency · Free Drone Inspection</p>
         </div>
       </section>
 {/* PART3 */}
