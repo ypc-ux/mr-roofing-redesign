@@ -175,6 +175,7 @@ export default function Home() {
       </section>
 {/* SECTIONS */}
       <section ref={statsRef} className="py-24 bg-[#0B1426] relative">
+        <div className="mesh-bg" />
         <div className="max-w-5xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
@@ -193,6 +194,8 @@ export default function Home() {
       </section>
 
       <section ref={servicesRef} className="relative overflow-hidden" style={{ minHeight: '100vh' }}>
+        <div className="mesh-bg" />
+        <div className="grid-bg" />
         <div className="hs-inner flex gap-6 px-[10vw] items-center h-screen w-max">
           <div className="flex-shrink-0 w-[30vw] min-w-[320px] pr-8">
             <div className="text-xs uppercase tracking-[0.3em] text-[#0693e3] mb-4">Services</div>
@@ -226,6 +229,8 @@ export default function Home() {
       </section>
 
       <section className="py-24" id="reviews">
+        <div className="mesh-bg" />
+        <div className="mesh-bg" />
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <div className="reveal text-xs uppercase tracking-[0.3em] text-[#0693e3] mb-4">Testimonials</div>
@@ -255,6 +260,8 @@ export default function Home() {
       </section>
 {/* PART3 */}
       <section className="py-24" id="areas">
+        <div className="mesh-bg" />
+        <div className="mesh-bg" />
         <div className="max-w-5xl mx-auto px-6 text-center">
           <div className="reveal text-xs uppercase tracking-[0.3em] text-[#0693e3] mb-4">Service Area</div>
           <h2 className="reveal text-4xl md:text-5xl font-light mb-4">Serving Metro East Atlanta</h2>
@@ -271,6 +278,8 @@ export default function Home() {
       </section>
 
       <section ref={aboutRef} className="py-24" id="about">
+        <div className="mesh-bg" />
+        <div className="mesh-bg" />
         <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
           <div>
             <div className="about-r text-xs uppercase tracking-[0.3em] text-[#0693e3] mb-4">Who We Are</div>
@@ -296,6 +305,7 @@ export default function Home() {
       </section>
 
       <section className="py-32 relative overflow-hidden" id="contact">
+        <div className="mesh-bg" />
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(#0693e3 1px, transparent 1px), linear-gradient(90deg, #0693e3 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
         <div className="relative max-w-3xl mx-auto px-6 text-center">
           <div className="reveal text-xs uppercase tracking-[0.3em] text-[#0693e3] mb-4">Get Started</div>
